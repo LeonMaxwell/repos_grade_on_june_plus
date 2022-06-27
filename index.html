@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой веб сервер на Python</title>
+</head>
+<body>
+
+    <div id="logs"></div>  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'https://kanban.digital-sector.ru/api/user',
+                headers: {
+                    "Content-Type": "text",
+                    "Authorization": "Bearer 2080|aKR4fuDwFT9jtB7Zr1vlaVrbREDwMP5ohNqbpUOG",
+                },
+                success: function (data) {
+                    for (var n in data['data'])
+                        $("#logs").append("<p> [" + data['data'][n]['id'] + "] " + data['data'][n]['name'] + " " + data['data'][n]['surname'] + "</p>")
+                }
+            });
+        })
+
+
+    </script>
+</body>
+</html>
