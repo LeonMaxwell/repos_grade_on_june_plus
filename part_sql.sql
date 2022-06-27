@@ -12,7 +12,6 @@ CREATE TABLE parent (
 CREATE TABLE child(
     id INT,
     parent_id INT,
-    INDEX par_id(parent_id),
     FOREIGN KEY (parent_id)
         REFERENCES parent(id)
         ON DELETE CASCADE
